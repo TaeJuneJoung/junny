@@ -1,0 +1,18 @@
+{% extends "redirect/base.html" %}
+{% block base_block %}
+
+<form action="/short/create/" accept-charset="UTF-8" data-remote="true" method="POST">
+    {% csrf_token %}
+    <input type="text" name="long_url"/>
+    <input type="text" name="short_url" id="short_ulr" value="http://junny-jtj0525.c9users.io:8080/short/"><span onclick="copy_url()">copy</span></input>
+    <input type="submit" value="Submit"/>
+</form>
+
+<script>
+    function copy_url() {
+      var copyText = document.getElementById("short_ulr");
+      copyText.select();
+      document.execCommand("copy");
+    }
+</script>
+{% endblock %}
