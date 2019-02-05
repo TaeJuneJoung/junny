@@ -3,14 +3,30 @@
 
 <form action="/short/create/" accept-charset="UTF-8" data-remote="true" method="POST">
     {% csrf_token %}
-    <input type="text" name="long_url"/>
-    <input type="text" name="short_url" id="short_ulr" value="http://junny-jtj0525.c9users.io:8080/short/"><span onclick="copy_url()">copy</span></input>
-    <input type="submit" value="Submit"/>
+    <div class="input-group m-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text bg-white text-primary">Long URL</span>
+        </div>
+        <input type="text" class="form-control" name="long_url" placeholder="Enter Long URL"/>
+    </div>
+    <div class="input-group m-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text bg-white text-primary">Short URL</span>
+        </div>
+        <input type="text" class="form-control" name="short_url" id="short_url" value="http://junny-jtj0525.c9users.io:8080/short/"/>
+        <div class="input-group-append">
+            <button class="btn btn-outline-primary" type="button" onclick="copy_url()">copy</button>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <input type="submit" class="btn btn-primary" value="Shorten"/>
+    </div>
 </form>
+
 
 <script>
     function copy_url() {
-      var copyText = document.getElementById("short_ulr");
+      var copyText = document.getElementById("short_url");
       copyText.select();
       document.execCommand("copy");
     }
