@@ -1,7 +1,8 @@
 {% extends "redirect/base.html" %}
 {% block base_block %}
 
-<form action="/short/create/" accept-charset="UTF-8" data-remote="true" method="POST">
+<!--<form action="/short/create/" accept-charset="UTF-8" data-remote="true" method="POST">-->
+<form  action="{% url 'redirect:create' %}" accept-charset="UTF-8" data-remote="true" method="POST">
     {% csrf_token %}
     <div class="input-group m-3">
         <div class="input-group-prepend">
