@@ -1,8 +1,8 @@
-{% extends "redirect/base.html" %}
-{% block base_block %}
+{% extends "base.html" %}
+{% block base %}
 
 <!--<form action="/short/create/" accept-charset="UTF-8" data-remote="true" method="POST">-->
-<form  action="{% url 'redirect:create' %}" accept-charset="UTF-8" data-remote="true" method="POST">
+<form  action="{% url 'shorts:create' %}" accept-charset="UTF-8" data-remote="true" method="POST">
     {% csrf_token %}
     <div class="input-group m-3">
         <div class="input-group-prepend">
@@ -14,12 +14,13 @@
         <div class="input-group-prepend">
             <span class="input-group-text bg-white text-primary">Short URL</span>
         </div>
-        <input type="text" class="form-control" name="short_url" id="short_url" value="http://junny-jtj0525.c9users.io:8080/short/"/>
+        <input type="text" class="form-control" name="short_url" id="short_url" value="http://junny-jtj0525.c9users.io:8080/shorts/"/>
         <div class="input-group-append">
             <button class="btn btn-outline-primary" type="button" onclick="copy_url()">copy</button>
         </div>
     </div>
     <div class="d-flex justify-content-center">
+        <div id="state"></div>
         <input type="submit" class="btn btn-primary" value="Shorten"/>
     </div>
 </form>

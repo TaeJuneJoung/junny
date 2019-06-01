@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block base %}
+<style type="text/css">
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,500,700,900,800,600);
+
+body {
+  font-family: "Work Sans", sans-serif;
+  background: #343a40;
+  color: #fff;
+  text-align: center;
+}
+
+h1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotateZ(20deg);
+  font-size: 180px;
+  font-weight: 700;
+  text-shadow: rgb(98, 106, 114) 1px 1px, rgb(98, 106, 114) 2px 2px,
+    rgb(98, 106, 114) 3px 3px, rgb(98, 106, 114) 4px 4px, rgb(98, 106, 114) 5px 5px,
+    rgb(98, 106, 114) 6px 6px, rgb(98, 106, 114) 7px 7px, rgb(98, 106, 114) 8px 8px,
+    rgb(99, 106, 114) 9px 9px, rgb(99, 106, 114) 10px 10px,
+    rgb(100, 107, 114) 11px 11px, rgb(101, 107, 114) 12px 12px,
+    rgb(101, 107, 114) 13px 13px, rgb(101, 108, 114) 14px 14px,
+    rgb(101, 108, 114) 15px 15px, rgb(102, 108, 115) 16px 16px,
+    rgb(103, 108, 115) 17px 17px, rgb(104, 108, 115) 18px 18px,
+    rgb(104, 109, 115) 19px 19px, rgb(104, 110, 116) 20px 20px,
+    rgb(105, 110, 116) 21px 21px, rgb(106, 110, 116) 22px 22px;
+}
+
+h1::after {
+  display: block;
+  content: "Sorry, but the page you were trying to view does not exist.";
+  font: 600 15px/1.5 "Work Sans", sans-serif;
+  text-shadow: #626a72 1px 1px, #626a72 2px 2px,
+    #626a72 3px 3px, #626a72 4px 4px, #626a72 5px 5px,
+    #626a72 6px 6px;
+}
+</style>
+
+<h1>404</h1>
+
+{% endblock %}
