@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 {% block base %}
-    <form>
-        {% csrf_token %}
-        <table>
-            {{form.as_table}}
-        </table>
-        <input type="submit" value="Submit"/>
-    </form>
-
+    {{user_info.username}}
+    <dl class="row">
+    {% for write in user_info.junny_set.all %}
+        <dt>
+            {{write.short_url}}
+        </dt>
+        <dd>
+            <a href="{{write.long_url}}">{{write.long_url}}</a>
+        </dd>
+        <dd>
+            {{write.access_time}}
+        </dd>
+    {% endfor %}
+    </dl>
 {% endblock %}

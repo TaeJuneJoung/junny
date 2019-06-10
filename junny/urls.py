@@ -17,9 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from shorts import views
 
+from django.conf.urls import url
+from django.conf import settings
+from django.views.static import serve
+
 urlpatterns = [
-    path('junny0525/', admin.site.urls),
+    path('manage/', admin.site.urls),
     path('', views.main),
     path('shorts/', include("shorts.urls")),
     path('accounts/', include("accounts.urls")),
+]
+
+urlpatterns += [
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]

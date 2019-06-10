@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.contrib.auth.decorators import login_required
@@ -22,3 +22,8 @@ def login(request):
 def logout(request):
     auth_logout(request)
     return redirect('shorts:main')
+    
+def user_page(request, user_id):
+    User = get_user_model()
+    user_info = get_object_or_404(User, pk=user_id)
+    return render(request, 'accounts/my_page.html', {'user_info':user_info})
