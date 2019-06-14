@@ -13,16 +13,9 @@ def list(request, user_id):
     
 def create(request):
     if request.method == "POST":
-    #     form = JunnyForm(request.POST)
-    #     if form.is_valid():
-    #         form.save()
-    #         return redirect("redirect:index")
-    # else:
-    #     form = JunnyForm()
-    # return render(request, "redirect/index.html", {"form":form})
         long_url = request.POST.get("long_url")
         user_short_url = request.POST.get("short_url")
-        user_short_url = user_short_url.split("http://junny-jtj0525.c9users.io:8080/shorts/")
+        user_short_url = user_short_url.split("http://junny.cf/shorts/")
         Junny.objects.create(long_url=long_url, short_url=user_short_url[1], user=request.user)
     return redirect("shorts:main")
     
