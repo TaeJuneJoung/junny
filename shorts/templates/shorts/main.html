@@ -13,7 +13,8 @@
         <div class="input-group-prepend">
             <span class="input-group-text bg-white text-primary">Short URL</span>
         </div>
-        <input type="text" class="form-control" name="short_url" id="short_url" value="http://junny.cf/shorts/"/>
+        <input type="text" class="form-control" name="short_url" id="short_url"/>
+        <input type="hidden" name="domain_url" id="domain_url"/>
         <div class="input-group-append">
             <button class="btn btn-outline-primary" type="button" onclick="copy_url()">copy</button>
         </div>
@@ -26,8 +27,14 @@
 
 
 <script>
+    let domain = window.location.href;
+    let copyText = document.getElementById("short_url");
+    let domain_url = document.getElementById("domain_url");
+    copyText.value = domain;
+    domain_url.value = domain;
+
     function copy_url() {
-      var copyText = document.getElementById("short_url");
+      copyText = document.getElementById("short_url");
       copyText.select();
       document.execCommand("copy");
     }

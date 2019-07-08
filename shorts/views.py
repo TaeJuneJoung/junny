@@ -15,7 +15,8 @@ def create(request):
     if request.method == "POST":
         long_url = request.POST.get("long_url")
         user_short_url = request.POST.get("short_url")
-        user_short_url = user_short_url.split("http://junny.cf/shorts/")
+        domain_url = request.POST.get("domain_url")
+        user_short_url = user_short_url.split(domain_url)
         Junny.objects.create(long_url=long_url, short_url=user_short_url[1], user=request.user)
     return redirect("shorts:main")
     

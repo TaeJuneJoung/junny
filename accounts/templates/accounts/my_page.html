@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block base %}
-    {{user_info.username}}
+    <h1>{{user_info.username}}</h1>
     <dl class="row">
     {% for write in user_info.junny_set.all %}
         <dt>
